@@ -11,7 +11,7 @@ To start, there is a power point(connectionsCurrent) that is basically just curr
 - Set up 'script.bat' under task scheduler to run with the highest privileges for your desired time.
 - If this is going to replicated for some reason by someone else for testing purposes, make sure the directory 'FakeNetworkhare' has been set up as a network share via windows properties.
 # Directory Tree for reference:
-KEY: **=directory, ||= means under the* and is a directory, |||= same thing as the ||, $= file**
+KEY: ** *=directory, ||= means under the* and is a directory, |||= same thing as the ||, $= file**
 ---------------------------------------------------------------------------
 - |--*connectionsCurrent(root)
 - |----------||---*connectionsCurrent910

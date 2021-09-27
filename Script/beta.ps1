@@ -1,6 +1,6 @@
-$FileName = "\\sds2k12r2\Public\Connection\connectionsCurrent.ppsx"
-$FileNameTwo = "C:\Users\Nelson Orellana\Documents\connectionsCurrent\FakeLocalDirectory\connectionsCurrent.ppsx"
-$LocalDir = "C:\Users\Nelson Orellana\Documents\connectionsCurrent\FakeLocalDirectory\"
+$FileName = "\\path\to\connectionsCurrent.ppsx"
+$FileNameTwo = "path\to\connectionsCurrent\FakeLocalDirectory\connectionsCurrent.ppsx"
+$LocalDir = "path\to\connectionsCurrent\FakeLocalDirectory\"
 $FileTime = Get-Date
 {"----- You are using connectionsCurrent, a small network-copy script made for CBT. -----"}
 # endless loop
@@ -22,7 +22,7 @@ for () {
                 #then copy
                 robocopy $FileName $LocalDir /MIR /Z /E /fft 
                 }
-            $NewFile = "C:\Users\Nelson Orellana\Documents\connectionsCurrent\FakeLocalDirectory\connectionsCurrent.ppsx"
+            $NewFile = "path\to\connectionsCurrent\FakeLocalDirectory\connectionsCurrent.ppsx"
             Invoke-Item $NewFile
     }
     $FileTime = $file.LastWriteTime

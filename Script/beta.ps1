@@ -1,7 +1,8 @@
-$FileName = "\\COMPUTERNAME\FakeNetworkShare\connectionsCurrent.ppsx"
-$FileNameTwo = "C:\path\to\dir\FakeLocalDirectory\connectionsCurrent.ppsx"
+$FileName = "\\sds2k12r2\Public\Connection\connectionsCurrent.ppsx"
+$FileNameTwo = "C:\Users\Nelson Orellana\Documents\connectionsCurrent\FakeLocalDirectory\connectionsCurrent.ppsx"
+$LocalDir = "C:\Users\Nelson Orellana\Documents\connectionsCurrent\FakeLocalDirectory\"
 $FileTime = Get-Date
-
+{"----- You are using connectionsCurrent, a small network-copy script made for CBT. -----"}
 # endless loop
 for () {
     $file = Get-Item $FileName
@@ -15,8 +16,13 @@ for () {
         }
         if((Get-FileHash $fileNameTwo).hash  -ne (Get-FileHash $fileName).hash)
             {"!NOTICE!: files are different, copying.."}
-            Copy-Item -Path $file -Destination C:\path\to\dir\FakeLocalDirectory\
-            $NewFile = "C:\path\to\dir\FakeLocalDirectory\connectionsCurrent.ppsx"
+            #Check destination path
+            if (Test-Path $FileName)
+                {
+                #then copy
+                robocopy $FileName $LocalDir /MIR /Z /E /fft 
+                }
+            $NewFile = "C:\Users\Nelson Orellana\Documents\connectionsCurrent\FakeLocalDirectory\connectionsCurrent.ppsx"
             Invoke-Item $NewFile
     }
     $FileTime = $file.LastWriteTime

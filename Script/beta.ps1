@@ -1,6 +1,5 @@
-$FileName = "path\to\connectionsCurrent.ppsx"
-$FileNameTwo = "path\to\connectionsCurrent\FakeLocalDirectory\connectionsCurrent.ppsx"
-$LocalDir = "path\to\connectionsCurrent\FakeLocalDirectory\"
+$FileNameTwo = "C:\path\to\connectionsCurrent\FakeLocalDirectory\connectionsCurrent.ppsx"
+$LocalDir = "C:\path\to\connectionsCurrent\FakeLocalDirectory\"
 $FileTime = Get-Date
 Write-Output "----- You are using connectionsCurrent, a small network-copy script made for CBT. -----"
 Write-Output "-----                                                                             -----"
@@ -10,7 +9,8 @@ Write-Output "-----                                                             
 Write-Output "-----                                                                             -----"
 # endless loop
 for () {
-    $file = Get-Item $FileName
+    $FileName = "path\to\connectionsCurrent.ppsx"
+    $file = Get-Item -force $FileName
     if ($FileTime -ne $file.LastWriteTime) {
         Get-Process powerpnt*
         Stop-Process -name POWERPNT -Force -ErrorAction Ignore
@@ -20,11 +20,11 @@ for () {
             if (Test-Path $FileName)
                 {
                 #then copy
-                robocopy $FileName $LocalDir /MIR /Z /E /fft
+                xcopy $FileName $LocalDir /E /Z /L /y
+                Write-Output "$Filename has been copied to $LocalDir"
                 }
             $NewFile = $FileNameTwo
             Start-Process $NewFile
-            Write-Output "The directory name is not invalid."
     }
     $FileTime = $file.LastWriteTime
     Start-Sleep -Seconds 5

@@ -18,7 +18,7 @@ for () {
     if ($FileTime -ne $file.LastWriteTime) {
         Get-Process powerpnt*  
         Stop-Process -name POWERPNT -Force -ErrorAction Ignore
-        if((Get-FileHash $fileNameTwo).hash  -ne (Get-FileHash $fileName).hash)
+        if((Get-FileHash $FileNameTwo).hash  -ne (Get-FileHash $FileName).hash)
             {"files are different, copying in new one to local directory.."}
             #Check destination path
             if (Test-Path $FileName)

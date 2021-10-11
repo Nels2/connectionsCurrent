@@ -20,7 +20,7 @@ To start, there is a power point(connectionsCurrent) that is basically just curr
 - Browse to the folder with the batch file.
 - Right-click the batch file and select the Copy option.
 - Use the Windows key + R keyboard shortcut to open the Run command.
-- Type the following command: shell:startup Source: Windows Central
+- Type the following command: shell:startup
 - Click the OK button.
 - Click the Paste option from the "Home" tab in the Startup folder. (Or Click the Paste shortcut button to create a shortcut to the batch file.) Source: Windows Central
 - Sign out of your account.

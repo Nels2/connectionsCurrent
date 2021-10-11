@@ -10,6 +10,11 @@ To start, there is a power point(connectionsCurrent) that is basically just curr
 # a little more information...
 - Set up 'script.bat' under task scheduler to run with the highest privileges for your desired time.
 - If this is going to replicated for some reason by someone else for testing purposes, make sure the directory 'FakeNetworkhare' has been set up as a network share via windows properties.
+# How to set thi up...
+- Copy 'connectionsCurrent' into C:/.
+- Add script to windows start up
+- Login into OneDrive from taskbar. (has to have access to whatever network drive that is going to be used obviously)
+- Run Script by creating a shortcut of 'script.bat' and placing it on desktop from the 'Scripts' folder. Make sure that it has been set to ALWAYS run with admin rights via properties -> advanced -> Run as Admin. 
 # Directory Tree for reference:
 KEY: ** *=directory, ||= means under the* and is a directory, |||= same thing as the ||, $= file**
 ---------------------------------------------------------------------------

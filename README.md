@@ -1,5 +1,5 @@
 # connectionsCurrent
-This started as a offline project for my company, but have since removed all references to it, and uploading here as a back up.
+The network-copy script. This started as a offline project for my company, but have since removed all references to it, and uploading here as a back up.
 
 # What this script does (`beta.ps1`)
 To start, there is a power point(connectionsCurrent) that is basically just current events for the day. This is a little project that I started for my company because they wanted a powerpoint to run on a set of displays. They also wanted the power point to switch to current day once a new one has been made and stored in a specific network share.

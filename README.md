@@ -12,7 +12,8 @@ To start, there is a power point(connectionsCurrent) that is basically just curr
 - You will *need* to set up a dummy user for sharepoint that has read-only access for the directory you are grabbing the file from.
 - The same dummy user mentioned above needs to have access to Powerpoint/Office and you will **need** to sign into the **machine running the script & accept the license agreement.** -- *skipping this usually won't let the powerpoint run.
 - You *should* set up a dummy local windows log-in user that has no password and auto logs in.
-- - Must set up both or the script will NOT run.
+- Must set up both or the script will NOT run.
+- you *could* edit Display/sleep settings so machine never sleeps or turns off. This is **Optional**.
 # How to set this up on a physical machine...
 1. Create a dummy local user or use an existing one. \
  **OPTIONAL -- setting up auto-login for dummy local user**: 

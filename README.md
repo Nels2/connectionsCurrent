@@ -12,34 +12,17 @@ To start, there is a power point(connectionsCurrent) that is basically just curr
 - If this is going to replicated for some reason by someone else for testing purposes, make sure the directory 'FakeNetworkShare' has been set up as a network share via windows properties.
 # How to set this up...
 - Copy 'connectionsCurrent' into C:/.
-- Add script to windows start up.. explained further below (*setting up script to run from start-up*)
+- Add script to windows start up & desktop.. explained further below (*setting up script to run from start-up*)
 - Login into OneDrive from taskbar. (has to have access to whatever network drive that is going to be used obviously)
 - Run Script by creating a shortcut of 'script.bat' and placing it on desktop from the 'Scripts' folder. Make sure that it has been set to ALWAYS run with admin rights via properties -> advanced -> Run as Admin. 
 ## Setting up script to run from start-up:
-- Go to Task Scheduler
-- Under Top-Pane select 'Action'
-- Now select 'Create Task'
-- Under Name:, put: connectionsCurrent-Launcher
-- Make sure you have selected 'Run with highest privileges'
-- Make sure you have the 'Configure for:' option is set to 'Windows 10'
-### Under the Triggers tab
-- Select 'New'
-- set 'Begin the Task:' to 'At log on'
-- set 'Settings' to any user
-- Press 'OK'
-### Under Actions tab
-- Set 'Action' to 'Start a program'
-- Under 'Program/script:' type in Powershell.exe
-- Under 'Add arguments (optional):' type in -executionpolicy bypass if (Test-path C:\connectionsCurrent\Script\beta.ps1) { C:\connectionsCurrent\Script\beta.ps1 } else { return -1 }
-- Press 'OK'
-### Under Conditions tab
-- Unselect 'Start the task only if the computer is on AC Power'
-- Under Settings tab
-- Unselect 'Stop the task if it runs longer than:'
-- Select 'Run task as soon as possible after a scheduled start is missed'
+- Press Win + R
+- Type in: shell:startup
+- Take 'script.bat' from Script folder and place on **desktop** as well **startup folder**.
 ## You should be free to restart and the script will display the power point upon login
+## * - depending on your hard drive and start up apps the time it takes to start may take a couple seconds.
 # Directory Tree for reference:
-KEY: ** *=directory, ||= means under the* and is a directory, |||= same thing as the ||, $= file**
+KEY: ** *=directory, ||= means under the* and is a directory, |||= same thing as the ||, $= file** *
 ---------------------------------------------------------------------------
 - |--*connectionsCurrent(root)
 - |----------||---*connectionsCurrent910
@@ -55,4 +38,9 @@ KEY: ** *=directory, ||= means under the* and is a directory, |||= same thing as
 - |--------------------|||----$connectionsCurrent
 - |----------||---*FakeLocalDirectory
 - |--------------------|||----$connectionsCurrent
+- |--*shell:startup
+- |----------$script.bat
+- |--*Desktop
+- |----------$script.bat(shortcut)
+- |----------$beta.ps1(shortcut)
 ---------------------------------------------------------------------------

@@ -13,7 +13,7 @@ for () {
     # The [1] part at the end tells the command to return only the result at index 1.
     # Indexes start with 0, which means specifying index 1 will show the result at the second position.
     $dauser= ((Get-WMIObject -ClassName Win32_ComputerSystem).Username).Split('\')[1]
-    $FileName = "C:\Users\$dauser\OneDrive - Century Business Technologies Inc\Company Documents\Connection\connectionsCurrent.pptx" #Network location / network file
+    $FileName = "C:\Users\$dauser\OneDrive_Location\Connection\connectionsCurrent.pptx" #Network location / network file
     $file = Get-Item -force $FileName
     if ($FileTime -ne $file.LastWriteTime) {
         Get-Process powerpnt*  

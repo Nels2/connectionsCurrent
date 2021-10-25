@@ -4,7 +4,7 @@ The network-copy script. This started as a offline project for my company, but h
 # What this script does (`beta.ps1`)
 To start, there is a power point(connectionsCurrent) that is basically just current events for the day. This is a little project that I started for my company because they wanted a powerpoint to run on a set of displays. They also wanted the power point to switch to current day once a new one has been made and stored in a specific network share.
 - First it compares hashes / date last touched of network share version(FakeNetworkShare) and local version.
-- Next, if the files are different, it copies over the new file(a `.pps` file) to local dir.
+- Next, if the files are different, it copies over the new `.pps` file from (FakeNetworkShare)/(SharePoint Location) to local dir(FakeLocalDirectory).
 - Then displays said `.pps` file from the local dir(FakeLocalDirectory). 
 - runs on a loop that just repeats above.
 # a little more information...

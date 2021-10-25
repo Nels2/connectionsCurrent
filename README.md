@@ -1,10 +1,10 @@
 # connectionsCurrent
 This started as a offline project for my company, but have since removed all references to it, and uploading here as a back up.
 
-# What this script does (beta.ps1)
+# What this script does (`beta.ps1`)
 To start, there is a power point(connectionsCurrent) that is basically just current events for the day. This is a little project that I started for my company because they wanted a powerpoint to run on a set of displays. They also wanted the power point to switch to current day once a new one has been made and stored in a specific network share.
 - First it compares hashes / date last touched of network share version(FakeNetworkShare) and local version.
-- Next, if the files are different, it copies over the new file(a *.pps file*) to local dir.
+- Next, if the files are different, it copies over the new file(a `.pps` file) to local dir.
 - Then displays said .pps file from the local dir(FakeLocalDirectory). 
 - runs on a loop that just repeats above.
 # a little more information...
@@ -13,37 +13,45 @@ To start, there is a power point(connectionsCurrent) that is basically just curr
 - You will *need* to set up a dummy user for sharepoint that has read-only access for the directory you are grabbing the file from.
 - The same dummy user mentioned above needs to have access to Powerpoint/Office and you will **need** to sign into the **machine running the script & accept the license agreement.** -- *skipping this usually won't let the powerpoint run.
 - You *should* set up a dummy local windows log-in user that has no password and auto logs in.
-# How to set this up...
+# How to set this up on a physical machine...
+- Create a dummy local user or use an existing one.
+ **optional -- setting up auto-login for dummy local user**: 
+ 1. Press Win + R and type in 'regedit' and open as Admin.
+ 2. Navigate to `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\PasswordLess\Device`
+ 3. Change the value of `DevicePasswordLessBuildVersion` to `0`.
+ 4. restart computer and you should auto-login
 - Copy 'connectionsCurrent' into C:/.
-- Add script to windows start up & desktop.. explained further below (*setting up script to run from start-up*)
-- Login into OneDrive from taskbar. (has to have access to whatever network drive that is going to be used obviously)
-- Run Script by creating a shortcut of 'script.bat' and placing it on desktop from the 'Scripts' folder. Make sure that it has been set to ALWAYS run with admin rights via properties -> advanced -> Run as Admin. 
+- Add script.bat (shortcut) to windows start up folder & desktop folder.. explained further below (*setting up script to run from start-up*)
+- Login into OneDrive from taskbar/Start menu. (**Needs** to have access to whatever network/SharePoint drive that is going to be used obviously)
+- Login into Office/PowerPoint with a user that has a license and accept the license agreement.
+- **Manually** run the script by creating a shortcut of 'script.bat' and placing it on desktop from the 'Scripts' folder-- or just running it directly.
 ## Setting up script to run from start-up:
 - Press Win + R
-- Type in: shell:startup
-- Take 'script.bat' from Script folder and place on **desktop** as well **startup folder**.
+- Type in: shell:startup & press Enter.
+- Create a shortcut of `script.bat` from Script folder and copy to **desktop** as well **startup folder**.
+- rename the shortcut to 'script'
 ## You should be free to restart and the script will display the power point upon login
 ## * - depending on your hard drive and start up apps the time it takes to start may take a couple seconds.
 # Directory Tree for reference:
 KEY: ** *=directory, ||= means under the* and is a directory, |||= same thing as the ||, $= file** *
 ---------------------------------------------------------------------------
+- |**C:\**
 - |--*connectionsCurrent(root)
-- |----------||---*connectionsCurrent910
-- |--------------------|||----$connectionsCurrent
-- |----------||---*connectionsCurrent913
-- |--------------------|||----$connectionsCurrent
-- |----------||---*connectionsCurrent920
-- |--------------------|||----$connectionsCurrent
+- |----------||---*connectionsCurrentXXX
+- |--------------------|||----`$connectionsCurrent`
+- |----------||---*connectionsCurrentXXX
+- |--------------------|||----`$connectionsCurrent`
+- |----------||---*connectionsCurrentXXX
+- |--------------------|||----`$connectionsCurrent`
 - |----------||---*Script
-- |--------------------|||----$beta.ps1
-- |--------------------|||----$script.bat
+- |--------------------|||----`$beta.ps1`
+- |--------------------|||----`$script.bat`
 - |----------||---*FakeNetworkShare
-- |--------------------|||----$connectionsCurrent
+- |--------------------|||----`$connectionsCurrent`
 - |----------||---*FakeLocalDirectory
-- |--------------------|||----$connectionsCurrent
+- |--------------------|||---`-$connectionsCurrent`
 - |--*shell:startup
-- |----------$script.bat
+- |----------`$script.bat`(shortcut)
 - |--*Desktop
-- |----------$script.bat(shortcut)
-- |----------$beta.ps1(shortcut)
+- |----------`$script.bat`(shortcut)
 ---------------------------------------------------------------------------

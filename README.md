@@ -8,10 +8,10 @@ To start, there is a power point(connectionsCurrent) that is basically just curr
 - Then displays said `.pps` file from the local dir(FakeLocalDirectory). 
 - runs on a loop that just repeats above.
 # a little more information...
-- Set up 'script.bat' under task scheduler to run with the highest privileges for your desired time.
-- If this is going to replicated for some reason by someone else for testing purposes, make sure the directory 'FakeNetworkShare' has been set up as a network share via windows properties.
+- If this is going to replicated for some reason by someone else for testing purposes, make sure the directory 'FakeNetworkShare' has been set up as a network share via windows properties. (optional)
 - You will *need* to set up a dummy user for sharepoint that has read-only access for the directory you are grabbing the file from.
 - The same dummy user mentioned above needs to have access to Powerpoint/Office and you will **need** to sign into the **machine running the script & accept the license agreement.** -- *skipping this usually won't let the powerpoint run.
+- Must set up both or the script will NOT run.
 - You *should* set up a dummy local windows log-in user that has no password and auto logs in.
 # How to set this up on a physical machine...
 1. Create a dummy local user or use an existing one. \

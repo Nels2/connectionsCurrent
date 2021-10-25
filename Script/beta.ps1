@@ -19,7 +19,7 @@ for () {
         Get-Process powerpnt*  
         Stop-Process -name POWERPNT -Force -ErrorAction Ignore
         if((Get-FileHash $FileNameTwo).hash  -ne (Get-FileHash $FileName).hash)
-            {"files are different, copying in new one to local directory.."}
+            {">files are different, copying in new one to local directory! .."}
             #Check destination path
             if (Test-Path $FileName)
                 {
@@ -28,6 +28,8 @@ for () {
                 }
                 #now to launch the powerpoint and play the slideshow
             $NewFile = $FileNameTwo
+            d = Get-Date -DisplayHint Date
+            Write-Output ">Launching $d 's $Newfile.."
             Start-Process $NewFile
     }
     $FileTime = $file.LastWriteTime

@@ -1,6 +1,6 @@
 clear
-$DisplayedFile = "C:\connectionsCurrent\FakeLocalDirectory\connectionsCurrent.pptx" # local file that will have its' hashes compared to the new one.
-$LocalDir = "C:\connectionsCurrent\FakeLocalDirectory\" # local directory where the network file will be copied to.
+$DisplayedFile = "C:\connectionsCurrent\LocalPresentation\connectionsCurrent.pptx" # local file that will have its' hashes compared to the new one.
+$LocalDir = "C:\connectionsCurrent\LocalPresentation\" # local directory where the network file will be copied to.
 $ppt = "c:\Program Files\Microsoft Office\root\Office16\powerpnt.exe"#powerpoint.exe location -- previous method of saving files ass .pps/.ppsx would corrupt the file.
 $FileTime = Get-Date
 Write-Output ">> Today's Date & Current Time: $Filetime"

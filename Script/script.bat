@@ -1,1 +1,1 @@
-PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& './beta.ps1'"
+PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& './connectionsCurrent.ps1'"
